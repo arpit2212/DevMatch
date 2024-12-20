@@ -1,11 +1,11 @@
 import React from 'react';
 
-import featimg1 from '../assets/images/landingPage/postHackathon.png';
-import featimg2 from '../assets/images/landingPage/hackathon.png';
-import featimg3 from '../assets/images/landingPage/project.png';
-import featimg4 from '../assets/images/landingPage/postporject.png';
-import featimg5 from '../assets/images/landingPage/postpartner.png';
-import featimg6 from '../assets/images/landingPage/findpartner.jpg';
+import featimg1 from '../../assets/images/landingPage/postHackathon.png';
+import featimg2 from '../../assets/images/landingPage/hackathon.png';
+import featimg3 from '../../assets/images/landingPage/project.png';
+import featimg4 from '../../assets/images/landingPage/postporject.png';
+import featimg5 from '../../assets/images/landingPage/postpartner.png';
+import featimg6 from '../../assets/images/landingPage/findpartner.jpg';
 
 const FeatureCard = ({ title, description, imageSrc, onButtonClick }) => {
   return (

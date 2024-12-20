@@ -1,7 +1,7 @@
 import React from 'react';
-import '../App.css';
-import backgroundImage from '../assets/images/landingPage/allHackathonBg.png'; // Import background image
-import { hackathonData, projectData } from '../mockData/hackathonAndProjectShortdata';
+import '../../App.css';
+import backgroundImage from '../../assets/images/landingPage/allHackathonBg.png'; // Import background image
+import { hackathonData, projectData } from '../../mockData/hackathonAndProjectShortdata';
 
 const LandingTophackathon = () => {
   return (

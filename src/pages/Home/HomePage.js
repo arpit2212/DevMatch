@@ -1,16 +1,16 @@
 import React from 'react';
 import serviceVector from "../../assets/images/landingPage/landingServiceVector.jpeg";
 
-import Landingheader from '../../layouts/landingHeader';
-import { LandingService } from '../../layouts/landingservice';
-import LadingFeatures from '../../layouts/LandingFeatures';
-import LandingTophackathon from '../../layouts/LandingTopHackathon';
-import { LandingFaq } from '../../layouts/LandingFaq';
-
+import Landingheader from '../../layouts/landingPage/landingHeader';
+import { LandingService } from '../../layouts/landingPage/landingservice';
+import LadingFeatures from '../../layouts/landingPage/LandingFeatures';
+import LandingTophackathon from '../../layouts/landingPage/LandingTopHackathon';
+import { LandingFaq } from '../../layouts/landingPage/LandingFaq';
 const HomePage = () => {
     return (
         <div>
             <Landingheader />
+            
             <LandingService
                 heading="Unlock Your Potential with Our DevMatch"
                 description="Our platform connects innovative minds with exciting opportunities. Whether you're hosting a hackathon or participating, you'll find invaluable resources and a supportive community."
