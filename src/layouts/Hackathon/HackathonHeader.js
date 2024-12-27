@@ -3,31 +3,51 @@ import Rightimg from "../../assets/images/Hacakthon/right-img.png"; // Adjust th
 
 const HackathonHeader = () => {
   return (
-    <div className="flex relative bg-gradient-to-b from-gray-900 via-black to-gray-800 text-white items-center justify-center h-screen overflow-hidden">
-      {/* Firefly effect */}
+    <div className="relative text-white h-screen overflow-hidden flex items-center justify-center mt-10 ">
+      {/* Moving Wave Background with Black and Blue */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-[#1d1d23] animate-wave"></div>
 
-      {/* Animated shapes */}
+      {/* Twinkling Stars Effect */}
+      <div className="absolute inset-0">
+        <div className="relative w-full h-full overflow-hidden">
+          {[...Array(500)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute bg-white rounded-full opacity-0 animate-twinkle"
+              style={{
+                width: `2px`, // Fixed size for all stars
+                height: `2px`,
+                top: `${Math.random() * 100}%`, // Random vertical position
+                left: `${Math.random() * 100}%`, // Random horizontal position
+                animationDuration: `${Math.random() * 5 + 3}s`, // Random duration between 3s and 8s
+                animationDelay: `${Math.random() * 5}s`, // Random delay up to 5s
+              }}
+            ></div>
+          ))}
+        </div>
+      </div>
 
       {/* Content Section */}
-      <div className="flex relative z-10 px-4 flex-col lg:flex-row justify-center content-center items-center  lg:justify-between w-full max-w-7xl">
+      <div className="relative z-10 px-4 flex flex-col lg:flex-row justify-center items-center lg:justify-between w-full max-w-7xl mt-16 mb-16 sm:mt-20 sm:mb-20">
         {/* Left Side Content */}
-        <div className="text-center lg:text-left lg:w-1/2 content-center ">
-          <h1 className="text-5xl md:text-5xl font-bold leading-tight">
-           <span className="text-[#3646F5]">Hackathon :</span> A Platform for Innovation 
+        <div className="text-center lg:text-left w-full lg:w-1/2">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <span className="text-[#3646F5]">Hackathon :</span> A Platform for Innovation
           </h1>
-          <p className="text-gray-400 mt-6 max-w-xl mx-auto lg:mx-0">
-          Hackathons are more than just events – they are innovation hubs where bright ideas meet real-world impact. Imagine a space buzzing with energy, filled with visionaries collaborating to solve pressing challenges. Whether you’re a coder, designer, or creative thinker, hackathons offer a golden opportunity to showcase your talent, connect with like-minded individuals, and turn dreams into reality.          </p>
+          <p className="text-gray-400 mt-6 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base">
+            Hackathons are more than just events – they are innovation hubs where bright ideas meet real-world impact. Imagine a space buzzing with energy, filled with visionaries collaborating to solve pressing challenges. Whether you’re a coder, designer, or creative thinker, hackathons offer a golden opportunity to showcase your talent, connect with like-minded individuals, and turn dreams into reality.
+          </p>
 
-          <div className="flex justify-center lg:justify-start items-center mt-8 gap-4">
+          <div className="flex flex-wrap justify-center lg:justify-start items-center mt-6 gap-4">
             <button
-              className="px-6 py-3 border-2  bg-black border-[#3646F5] rounded hover:bg-[#3646F5] hover:border-[#3646F5] hover:text-white"
-              onClick={() => (window.location.href = '/createBlog')}
+              className="px-4 py-2 sm:px-6 sm:py-3 border-2 bg-black border-[#3646F5] rounded hover:bg-[#3646F5] hover:border-[#3646F5] hover:text-white text-sm sm:text-base"
+              onClick={() => (window.location.href = '/createHackathons')}
             >
               Create Hackathon
             </button>
             <button
-              className="px-6 py-3 border-2  bg-[#3646F5] border-[#3646F5] text-white  rounded hover:bg-black hover:border-[#3646F5] hover:text-white"
-              onClick={() => (window.location.href = '/readBlog')}
+              className="px-4 py-2 sm:px-6 sm:py-3 border-2 bg-[#3646F5] border-[#3646F5] text-white rounded hover:bg-black hover:border-[#3646F5] hover:text-white text-sm sm:text-base"
+              onClick={() => (window.location.href = '/AllHackathons')}
             >
               View All Hackathon
             </button>
@@ -35,53 +55,46 @@ const HackathonHeader = () => {
         </div>
 
         {/* Right Side Image */}
-        <div className="mt-12 lg:mt-0 lg:w-1/2 flex justify-center">
-          <img
-            src={Rightimg}
-            alt="Blog Illustration"
-            className="w-3/4 md:w-2/3 rounded-lg shadow-lg"
-          />
+        <div className="mt-8 lg:mt-0 w-full lg:w-1/2 flex justify-center">
+        <img
+  src={Rightimg}
+  alt="Blog Illustration"
+  className="w-4/6 sm:w-3/4 md:w-2/3 rounded-lg shadow-lg mix-blend-lighten"
+/>
+
         </div>
       </div>
 
-      {/* Firefly and shape animation CSS */}
+      {/* Tailwind and Custom Animation Styles */}
       <style jsx>{`
-        .firefly {
-          position: absolute;
-          border-radius: 50%;
-          opacity: 0;
-          animation: firefly-animation 10s infinite;
+        @keyframes wave {
+          0% {
+            background-position: 0 0;
+          }
+          50% {
+            background-position: 100% 100%;
+          }
+          100% {
+            background-position: 0 0;
+          }
         }
 
-        @keyframes firefly-animation {
-          0% {
-            transform: translate(0, 0);
+        .animate-wave {
+          animation: wave 15s ease-in-out infinite;
+          background-size: 200% 200%;
+        }
+
+        @keyframes twinkle {
+          0%, 100% {
             opacity: 0;
           }
           50% {
             opacity: 1;
           }
-          100% {
-            transform: translate(calc(100vw - 50px), calc(100vh - 50px));
-            opacity: 0;
-          }
         }
 
-        .animate-shape {
-          position: absolute;
-          animation: shape-animation 6s infinite ease-in-out;
-        }
-
-        @keyframes shape-animation {
-          0% {
-            transform: translateY(0) rotate(0);
-          }
-          50% {
-            transform: translateY(-50px) rotate(180deg);
-          }
-          100% {
-            transform: translateY(0) rotate(360deg);
-          }
+        .animate-twinkle {
+          animation: twinkle infinite ease-in-out;
         }
       `}</style>
     </div>

@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import HackathonHeader from '../../layouts/Hackathon/HackathonHeader';
+import AllHackathons from '../../layouts/Hackathon/allHackathons'
 
 
 function HackathonsList() {
@@ -12,6 +13,8 @@ function HackathonsList() {
     <Header />
 
 <HackathonHeader />
+
+<AllHackathons />
 
 <Footer />
     </div>

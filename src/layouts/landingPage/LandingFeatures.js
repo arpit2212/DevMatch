@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';  // Importing useNavigate instead of useHistory
 
 import featimg1 from '../../assets/images/landingPage/postHackathon.png';
 import featimg2 from '../../assets/images/landingPage/hackathon.png';
@@ -34,6 +35,8 @@ const FeatureCard = ({ title, description, imageSrc, onButtonClick }) => {
 };
 
 const LadingFeatures = () => {
+  const navigate = useNavigate(); // Initialize useNavigate hook for navigation
+
   const features = [
     {
       title: 'Post Hackathon',
@@ -41,19 +44,23 @@ const LadingFeatures = () => {
         'Easily post your hackathon details to attract the right participants and sponsors.',
       imageSrc:
         featimg1, // Replace with actual image URL
+        onButtonClick: () => navigate('/createHackathons'),
     },
     {
       title: 'Apply for Hackathon',
       description:
         'Discover exciting hackathons and apply to showcase your skills and projects.',
       imageSrc:
-      featimg2,    },
+      featimg2,
+      onButtonClick: () => navigate('/hackathon'), // Use navigate to redirect to /hackathons
+    },
     {
       title: 'Post Project',
       description:
         'Share project ideas and find team members or collaborators to bring them to life.',
       imageSrc:
       featimg3,
+      onButtonClick: () => alert('You clicked for: Post Project'),
     },
     {
       title: 'Apply for Project',
@@ -61,6 +68,7 @@ const LadingFeatures = () => {
         'Browse through available projects and join one that aligns with your expertise.',
       imageSrc:
       featimg4,
+      onButtonClick: () => alert('You clicked for: Apply for Project'),
     },
     {
       title: 'Post for Partner',
@@ -68,6 +76,7 @@ const LadingFeatures = () => {
         'Looking for a partner for your venture? Post your requirements here.',
       imageSrc:
       featimg5,
+      onButtonClick: () => alert('You clicked for: Post for Partner'),
     },
     {
       title: 'Apply for Partner',
@@ -75,6 +84,7 @@ const LadingFeatures = () => {
         'Explore partnership opportunities and apply to collaborate with like-minded individuals.',
       imageSrc:
       featimg6,
+      onButtonClick: () => alert('You clicked for: Apply for Partner'),
     },
   ];
 
@@ -89,9 +99,7 @@ const LadingFeatures = () => {
               title={feature.title}
               description={feature.description}
               imageSrc={feature.imageSrc}
-              onButtonClick={() =>
-                alert(`You clicked for: ${feature.title}`)
-              }
+              onButtonClick={feature.onButtonClick}
             />
           ))}
         </div>

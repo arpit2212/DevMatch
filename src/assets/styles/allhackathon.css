@@ -1,0 +1,15 @@
+.animate-border-motion {
+  animation: border-motion 3s linear infinite;
+}
+
+@keyframes border-motion {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(255, 0, 0);
+  }
+  100% {
+    border-color: transparent;
+  }
+}

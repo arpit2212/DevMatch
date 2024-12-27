@@ -22,12 +22,12 @@ export const LandingService = (props: LandingServiceProps) => {
   };
 
   return (
-    <section id="relume" className="px-[5%] py-8 md:py-12 lg:py-16">
+    <section id="relume" className="px-5 py-8 md:py-12 lg:py-16">
       <div className="container">
-        <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:gap-y-10 lg:grid-cols-2 lg:items-center">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 lg:gap-10 lg:items-center">
           <div>
-            <h1 className="mb-5 text-4xl font-bold md:mb-6 md:text-6xl lg:text-7xl">{heading}</h1>
-            <p className="md:text-sm">{description}</p>
+            <h1 className="mb-5 text-3xl font-bold sm:text-4xl md:text-6xl lg:text-7xl">{heading}</h1>
+            <p className="md:text-base">{description}</p>
             <div className="mt-4 flex flex-wrap gap-2 md:mt-6">
               {buttons.map((button, index) => (
                 <Button
@@ -38,7 +38,7 @@ export const LandingService = (props: LandingServiceProps) => {
                       : button.variant === "secondary"
                       ? "bg-white text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white"
                       : button.variant === "outline"
-                      ? "bg-transparent bg-black text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white"
+                      ? "bg-transparent text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white"
                       : button.variant === "ghost"
                       ? "bg-transparent text-gray-700 hover:bg-gray-200 hover:text-black border-0"
                       : button.variant === "danger"
@@ -52,7 +52,7 @@ export const LandingService = (props: LandingServiceProps) => {
                       : button.variant === "gradient"
                       ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600"
                       : ""
-                  } px-6 py-3 rounded-full`}
+                  } px-6 py-3 rounded-full text-sm md:text-base`}
                   onClick={button.onClick}
                 >
                   {button.title}
@@ -60,7 +60,7 @@ export const LandingService = (props: LandingServiceProps) => {
               ))}
             </div>
           </div>
-          <div>
+          <div className="mt-8 md:mt-0">
             <img
               src={image.src}
               className="w-full max-w-[500px] object-cover mx-auto"

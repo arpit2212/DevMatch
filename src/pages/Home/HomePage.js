@@ -15,7 +15,7 @@ const HomePage = () => {
                 heading="Unlock Your Potential with Our DevMatch"
                 description="Our platform connects innovative minds with exciting opportunities. Whether you're hosting a hackathon or participating, you'll find invaluable resources and a supportive community."
                 buttons={[
-                    { title: "Apply for hackathon", variant: "primary", onClick: () => alert(" Apply for hackathon") },
+                    { title: "Apply for hackathon", variant: "primary", onClick: () => (window.location.href = '/hackathon') },
                     { title: "Find Partner", variant: "secondary", onClick: () => alert("Find Partner") },
                     { title: "Apply for Project", variant: "primary", onClick: () => alert("Apply for Project") },
                 ]}

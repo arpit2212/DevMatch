@@ -17,16 +17,16 @@ const Footer = () => {
           <h2 className="text-md font-semibold mb-2">Hackathon</h2>
           <ul className="text-sm space-y-1">
             <li>
-              <a href="/">Post Hackathon</a>
+              <a href="/createHackathons">Post Hackathon</a>
             </li>
             <li>
-              <a href="/">Apply Hackathon</a>
+              <a href="/hackathon">Apply Hackathon</a>
             </li>
             <li>
-              <a href="/">Search Hackathon</a>
+              <a href="/hackathon">Search Hackathon</a>
             </li>
             <li>
-              <a href="/">View My Hackathon</a>
+              <a href="/hackathon">View My Hackathon</a>
             </li>
           </ul>
         </div>
