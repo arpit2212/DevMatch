@@ -20,10 +20,10 @@ const Footer = () => {
               <a href="/createHackathons">Post Hackathon</a>
             </li>
             <li>
-              <a href="/hackathon">Apply Hackathon</a>
+              <a href="/AllHackathons">Apply Hackathon</a>
             </li>
             <li>
-              <a href="/hackathon">Search Hackathon</a>
+              <a href="/AllHackathons">Search Hackathon</a>
             </li>
             <li>
               <a href="/hackathon">View My Hackathon</a>

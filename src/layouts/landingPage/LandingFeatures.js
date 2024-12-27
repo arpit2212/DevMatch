@@ -52,7 +52,7 @@ const LadingFeatures = () => {
         'Discover exciting hackathons and apply to showcase your skills and projects.',
       imageSrc:
       featimg2,
-      onButtonClick: () => navigate('/hackathon'), // Use navigate to redirect to /hackathons
+      onButtonClick: () => navigate('/AllHackathons'), // Use navigate to redirect to /hackathons
     },
     {
       title: 'Post Project',
