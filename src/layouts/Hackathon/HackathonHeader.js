@@ -19,8 +19,8 @@ const HackathonHeader = () => {
                 height: `2px`,
                 top: `${Math.random() * 100}%`, // Random vertical position
                 left: `${Math.random() * 100}%`, // Random horizontal position
-                animationDuration: `${Math.random() * 5 + 3}s`, // Random duration between 3s and 8s
-                animationDelay: `${Math.random() * 5}s`, // Random delay up to 5s
+                animationDuration: `${Math.random() * 1 + 3}s`, // Random duration between 3s and 8s
+                animationDelay: `${Math.random() * 3}s`, // Random delay up to 5s
               }}
             ></div>
           ))}
@@ -80,7 +80,7 @@ const HackathonHeader = () => {
         }
 
         .animate-wave {
-          animation: wave 15s ease-in-out infinite;
+          animation: wave 10s ease-in-out infinite;
           background-size: 200% 200%;
         }
 
