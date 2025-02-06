@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 import '../../App.css';
 import backgroundImage from '../../assets/images/landingPage/allHackathonBg.png'; // Import background image
-import { hackathonData, projectData } from '../../mockData/hackathonAndProjectShortdata';
+import { hackathonData} from '../../mockData/HackathonData';
+import { ProjectData } from '../../mockData/ProjectData';
 
 const LandingTophackathon = () => {
   return (
@@ -25,8 +26,8 @@ const LandingTophackathon = () => {
         <div className="scroll-container flex overflow-x-scroll sm:overflow-auto">
           {hackathonData.concat(hackathonData).map((event, index) => (
             <Link
-              key={index}
-              to={`/hackathon/${index}`} // Dynamic route based on index
+              key={index + 1}
+              to={`/hackathon/${index + 1}`} // Dynamic route based on index
               className="scroll-card group/card transform transition-transform hover:scale-105 sm:w-96 w-80 mr-4"
               style={{
                 backgroundImage: `url(${event.image})`,
@@ -55,10 +56,10 @@ const LandingTophackathon = () => {
       </p>
       <div className="relative overflow-hidden mt-20 mb-28">
         <div className="scroll2-container flex overflow-x-scroll sm:overflow-auto">
-          {projectData.concat(projectData).map((event, index) => (
+          {ProjectData.concat(ProjectData).map((event, index) => (
             <Link
-              key={index}
-              to={`/project/${index}`} // Dynamic route based on index
+              key={index + 1}
+              to={`/project/${index + 1}`} // Dynamic route based on index
               className="scroll2-card group/card transform transition-transform hover:scale-105 sm:w-96 w-80 mr-4"
               style={{
                 backgroundImage: `url(${event.image})`,

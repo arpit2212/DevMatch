@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoSearch, IoClose } from 'react-icons/io5';
-import hackathonData from '../../mockData/HackathonData';
+import ProjectData from '../../mockData/ProjectData';
 
-const AllHackathons = () => {
+const AllProjects = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
   // Filter the hackathons based on the search input
-  const filteredHackathons = hackathonData.filter((hackathon) =>
-    hackathon.title.toLowerCase().includes(search.toLowerCase())
+  const filteredProjects = ProjectData.filter((project) =>
+    project.title.toLowerCase().includes(search.toLowerCase())
   );
 
   // Calculate pagination details
-  const totalPages = Math.ceil(filteredHackathons.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = filteredHackathons.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = filteredProjects.slice(startIndex, startIndex + itemsPerPage);
 
   // Change page
   const handlePageChange = (page) => {
@@ -33,14 +33,14 @@ const AllHackathons = () => {
         <div className="w-80 h-80 bg-blue-300 opacity-40 rounded-full blur-2xl absolute bottom-10 right-20 animate-slow-pulse"></div>
       </div>
 
-      <h2 className="text-4xl font-extrabold text-center text-indigo-700 mb-10 drop-shadow-md">All Hackathons</h2>
+      <h2 className="text-4xl font-extrabold text-center text-indigo-700 mb-10 drop-shadow-md">All Projects</h2>
 
       {/* Search bar with icon */}
       <div className="flex items-center border-2 border-indigo-300 hover:border-indigo-600 px-4 py-3 rounded-full shadow-lg mb-10 w-full max-w-md mx-auto bg-white backdrop-blur-sm">
         <IoSearch className="text-indigo-500 mr-3 text-xl" />
         <input
           type="text"
-          placeholder="Search Hackathons"
+          placeholder="Search Projects"
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
@@ -60,27 +60,27 @@ const AllHackathons = () => {
       </div>
 
       {/* Show message if no hackathons are found */}
-      {filteredHackathons.length === 0 ? (
-        <p className="text-center text-gray-500 text-lg">No Hackathons Found</p>
+      {filteredProjects.length === 0 ? (
+        <p className="text-center text-gray-500 text-lg">No Projects Found</p>
       ) : (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-            {currentItems.map((hackathon) => (
+            {currentItems.map((project) => (
               <Link
-                key={hackathon.id}
-                to={`/hackathon/${hackathon.id}`}
+                key={project.id}
+                to={`/Project/${project.id}`}
                 className="relative bg-gradient-to-t from-white via-gray-200 to-white text-black rounded-xl shadow-lg border border-gray-200 p-6 transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group"
               >
                 <div className="absolute inset-0 border-2 border-indigo-400 rounded-xl group-hover:border-indigo-600 group-hover:border-spacing-6 animate-border-motion"></div>
                 <img
-                  src={hackathon.image}
-                  alt={hackathon.title}
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-52 object-cover rounded-lg mb-4"
                 />
-                <h3 className="text-2xl font-bold mb-2 text-indigo-700">{hackathon.title}</h3>
-                <p className="text-black mb-3">{hackathon.description}</p>
-                <p className="text-sm text-black mb-1">Location: {hackathon.location}</p>
-                <p className="text-sm text-gray-600">Date: {hackathon.date}</p>
+                <h3 className="text-2xl font-bold mb-2 text-indigo-700">{project.title}</h3>
+                <p className="text-black mb-3">{project.description}</p>
+                <p className="text-sm text-black mb-1">Location: {project.location}</p>
+                <p className="text-sm text-gray-600">Date: {project.date}</p>
                 <div
                   className="mt-4 inline-block bg-indigo-500 border text-white py-2 px-5 rounded-xl shadow hover:bg-indigo-600 transition-colors text-center"
                 >
@@ -126,4 +126,4 @@ const AllHackathons = () => {
   );
 };
 
-export default AllHackathons;
+export default AllProjects;

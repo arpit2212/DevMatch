@@ -30,8 +30,8 @@ const Header = () => {
           <a href="/Hackathon" className="text-gray-600 hover:text-[#3646F5]">
             Hackathon
           </a>
-          <a href="#projects" className="text-gray-600 hover:text-[#3646F5]">
-            Projects
+          <a href="/project" className="text-gray-600 hover:text-[#3646F5]">
+            Project
           </a>
           <a href="#find-partner" className="text-gray-600 hover:text-[#3646F5]">
             Find Partner
@@ -113,10 +113,10 @@ const Header = () => {
             Hackathon
           </a>
           <a
-            href="#projects"
+            href="/project"
             className="text-gray-600 hover:text-[#3646F5] border border-black px-4 py-2"
           >
-            Projects
+            Project
           </a>
           <a
             href="#find-partner"

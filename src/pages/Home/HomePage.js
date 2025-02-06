@@ -17,7 +17,7 @@ const HomePage = () => {
                 buttons={[
                     { title: "Apply for hackathon", variant: "primary", onClick: () => (window.location.href = '/hackathon') },
                     { title: "Find Partner", variant: "secondary", onClick: () => alert("Find Partner") },
-                    { title: "Apply for Project", variant: "primary", onClick: () => alert("Apply for Project") },
+                    { title: "Apply for Project", variant: "primary", onClick: () => (window.location.href = '/project') },
                 ]}
                 image={{
                     src: serviceVector,

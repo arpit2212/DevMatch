@@ -36,16 +36,16 @@ const Footer = () => {
           <h2 className="text-md font-semibold mb-2">Projects</h2>
           <ul className="text-sm space-y-1">
             <li>
-              <a href="/">Post Project</a>
+              <a href="/createProject">Post Project</a>
             </li>
             <li>
-              <a href="/">Apply Project</a>
+              <a href="/AllProjects">Apply Project</a>
             </li>
             <li>
-              <a href="/">Search Project</a>
+              <a href="/AllProjects">Search Project</a>
             </li>
             <li>
-              <a href="/">View My Project</a>
+              <a href="/Project">View My Project</a>
             </li>
           </ul>
         </div>

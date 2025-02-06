@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import hackathonData from '../../../mockData/hackathonAndProjectShortdata';
+import { useParams , useNavigate} from 'react-router-dom';
+import hackathonData from '../../../mockData/HackathonData';
 import Footer from '../../../components/Footer';
 import Header from '../../../components/Header';
 import ParticipantDetails from '../../../layouts/Hackathon/ParticipantDetails'; // Import the new component
@@ -10,11 +10,14 @@ const HackathonDetail = () => {
   const hackathonId = parseInt(id);
   const hackathon = hackathonData.find((item) => item.id === hackathonId);
   const [isApplyNowOpen, setApplyNowOpen] = useState(false);
+  const navigate = useNavigate();
 
   if (!hackathon) {
     return <div className="text-center text-red-500 mt-10">Hackathon not found!</div>;
   }
-
+  const handleChat = () => {
+    navigate("/chat");
+  };
   const handleApplyNow = () => {
     setApplyNowOpen(true);
   };
@@ -131,6 +134,14 @@ const HackathonDetail = () => {
               Apply Now
             </button>
           </div>
+          <div className="mt-8 mx-6 flex justify-center">
+      <button
+        onClick={handleChat}
+        className="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-300 shadow-lg"
+      >
+        Chat with the Organizer
+      </button>
+    </div>
         </div>
       </div>
 
