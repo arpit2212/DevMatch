@@ -60,7 +60,7 @@ const LadingFeatures = () => {
         'Share project ideas and find team members or collaborators to bring them to life.',
       imageSrc:
       featimg3,
-      onButtonClick: () => alert('You clicked for: Post Project'),
+      onButtonClick: () => navigate('/createProject'),
     },
     {
       title: 'Apply for Project',
@@ -68,7 +68,7 @@ const LadingFeatures = () => {
         'Browse through available projects and join one that aligns with your expertise.',
       imageSrc:
       featimg4,
-      onButtonClick: () => alert('You clicked for: Apply for Project'),
+      onButtonClick: () => navigate('/AllProjects'),
     },
     {
       title: 'Post for Partner',
