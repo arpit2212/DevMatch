@@ -76,7 +76,7 @@ const LadingFeatures = () => {
         'Looking for a partner for your venture? Post your requirements here.',
       imageSrc:
       featimg5,
-      onButtonClick: () => alert('You clicked for: Post for Partner'),
+      onButtonClick: () => navigate('/createPartner'),
     },
     {
       title: 'Apply for Partner',
@@ -84,7 +84,7 @@ const LadingFeatures = () => {
         'Explore partnership opportunities and apply to collaborate with like-minded individuals.',
       imageSrc:
       featimg6,
-      onButtonClick: () => alert('You clicked for: Apply for Partner'),
+      onButtonClick: () => navigate('/AllFindPartner'),
     },
   ];
 
