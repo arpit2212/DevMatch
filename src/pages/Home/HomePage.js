@@ -16,7 +16,7 @@ const HomePage = () => {
                 description="Our platform connects innovative minds with exciting opportunities. Whether you're hosting a hackathon or participating, you'll find invaluable resources and a supportive community."
                 buttons={[
                     { title: "Apply for hackathon", variant: "primary", onClick: () => (window.location.href = '/hackathon') },
-                    { title: "Find Partner", variant: "secondary", onClick: () => alert("Find Partner") },
+                    { title: "Find Partner", variant: "secondary", onClick: () => (window.location.href = '/FindPartner')},
                     { title: "Apply for Project", variant: "primary", onClick: () => (window.location.href = '/project') },
                 ]}
                 image={{

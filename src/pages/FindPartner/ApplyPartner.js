@@ -1,18 +1,19 @@
 import React from 'react'
-import AllProjects from '../../layouts/Project/allProjects';
+
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import AllFindPartner from '../../layouts/FIndPartner/allFindParnter';
 
-const ApplyProject = () => {
+const ApplyPartner = () => {
   return (
     <div>
 
        <Header />
-       <AllProjects/>
+       <AllFindPartner/>
         <Footer />
       
     </div>
   )
 }
 
-export default ApplyProject;
+export default ApplyPartner;

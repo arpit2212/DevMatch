@@ -33,12 +33,10 @@ const Header = () => {
           <a href="/project" className="text-gray-600 hover:text-[#3646F5]">
             Project
           </a>
-          <a href="#find-partner" className="text-gray-600 hover:text-[#3646F5]">
+          <a href="/FindPartner" className="text-gray-600 hover:text-[#3646F5]">
             Find Partner
           </a>
-          <a href="#community" className="text-gray-600 hover:text-[#3646F5]">
-            Community
-          </a>
+         
           <a href="#contact-us" className="text-gray-600 hover:text-[#3646F5]">
             Contact Us
           </a>
@@ -119,17 +117,12 @@ const Header = () => {
             Project
           </a>
           <a
-            href="#find-partner"
+            href="/FindPartner"
             className="text-gray-600 hover:text-[#3646F5] border border-black px-4 py-2"
           >
             Find Partner
           </a>
-          <a
-            href="#community"
-            className="text-gray-600 hover:text-[#3646F5] border border-black px-4 py-2"
-          >
-            Community
-          </a>
+          
           <a
             href="#contact-us"
             className="text-gray-600 hover:text-[#3646F5] border border-black px-4 py-2"

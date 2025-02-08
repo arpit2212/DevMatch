@@ -55,16 +55,16 @@ const Footer = () => {
           <h2 className="text-md font-semibold mb-2">Find Partner</h2>
           <ul className="text-sm space-y-1">
             <li>
-              <a href="/">Post Partner</a>
+              <a href="/createPartner">Post Partner</a>
             </li>
             <li>
-              <a href="/">Apply Partner</a>
+              <a href="/AllFindPartner">Apply Partner</a>
             </li>
             <li>
-              <a href="/">Search Partner</a>
+              <a href="/AllFindPartner">Search Partner</a>
             </li>
             <li>
-              <a href="/">View My Partner</a>
+              <a href="/AllProjects">View My Partner</a>
             </li>
           </ul>
         </div>

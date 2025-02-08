@@ -46,3 +46,17 @@
 .scroll2-container:hover {
   animation-play-state: paused;
 }
+/* 
+  
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }
+  
+  .animate-twinkle {
+    animation: twinkle 2s infinite ease-in-out;
+  } */
