@@ -37,7 +37,7 @@ const Header = () => {
             Find Partner
           </a>
          
-          <a href="#contact-us" className="text-gray-600 hover:text-[#3646F5]">
+          <a href="/ContactUs" className="text-gray-600 hover:text-[#3646F5]">
             Contact Us
           </a>
         </nav>
@@ -124,7 +124,7 @@ const Header = () => {
           </a>
           
           <a
-            href="#contact-us"
+            href="/ContactUs"
             className="text-gray-600 hover:text-[#3646F5] border border-black px-4 py-2"
           >
             Contact Us
