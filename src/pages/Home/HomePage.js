@@ -18,6 +18,7 @@ const HomePage = () => {
                     { title: "Apply for hackathon", variant: "primary", onClick: () => (window.location.href = '/hackathon') },
                     { title: "Find Partner", variant: "secondary", onClick: () => (window.location.href = '/FindPartner')},
                     { title: "Apply for Project", variant: "primary", onClick: () => (window.location.href = '/project') },
+                    { title: "Find Exiting Events", variant: "secondary", onClick: () => (window.location.href = '/FindPartner')},
                 ]}
                 image={{
                     src: serviceVector,
@@ -35,7 +36,7 @@ const HomePage = () => {
     button={{
         title: "Contact Support",
         variant: "secondary",
-        onClick: () => alert("Contacting support!"),
+        onClick: () => (window.location.href = '/ContactUs'),
     }}
     questions={[
         {

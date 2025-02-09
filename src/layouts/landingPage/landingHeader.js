@@ -56,11 +56,11 @@ const Landingheader = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4">
         <h1 className="text-6xl md:text-6xl font-bold">
-          Join the <span className="text-[#3646F5]">Ultimate Hackathon</span>
+          Join the <span className="text-[#3646F5]">Ultimate College</span>
           <br /> Experience Today!
         </h1>
         <p className="text-gray-400 mt-10 max-w-4xl mx-auto">
-          Connect, collaborate, and innovate with fellow tech enthusiasts. Discover hackathons, showcase your projects, and find your perfect partner!
+          Connect, collaborate, and innovate with fellow tech enthusiasts in Multiple Events. Discover hackathons, showcase your projects, and find your perfect partner!
         </p>
         <button
   className="mt-6 inline-flex items-center justify-center w-24 h-16 border-2 border-white hover:bg-[#3646F5] hover:border-[#3646F5] hover:text-white"

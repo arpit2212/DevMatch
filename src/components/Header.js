@@ -19,13 +19,16 @@ const Header = () => {
             alt="HackVerse Logo"
             className="h-8 w-auto"
           />
-          <span onClick={() => (window.location.href = "/")} className="ml-2 font-extrabold text-2xl">DevMatch</span>
+          <span onClick={() => (window.location.href = "/")} className="ml-2 font-black text-3xl bg-gradient-to-r from-[#000000] via-[#314481] to-[#1e29c4] text-transparent bg-clip-text tracking-wide">DevMatch</span>
         </div>
 
         {/* Desktop and Tablet Navigation */}
         <nav className="hidden lg:flex space-x-6">
           <a href="/" className="text-gray-600 hover:text-[#3646F5]">
             Home
+          </a>
+          <a href="/Event" className="text-gray-600 hover:text-[#3646F5]">
+            Events
           </a>
           <a href="/Hackathon" className="text-gray-600 hover:text-[#3646F5]">
             Hackathon
@@ -99,13 +102,19 @@ const Header = () => {
 
         <div className="flex flex-col space-y-4 p-4 w-full text-center">
           <a
-            href="#home"
+            href="/"
             className="text-gray-600 hover:text-[#3646F5] border border-black px-4 py-2"
           >
             Home
           </a>
           <a
-            href="Hackathon"
+            href="/Event"
+            className="text-gray-600 hover:text-[#3646F5] border border-black px-4 py-2"
+          >
+            Events
+          </a>
+          <a
+            href="/Hackathon"
             className="text-gray-600 hover:text-[#3646F5] border border-black px-4 py-2"
           >
             Hackathon

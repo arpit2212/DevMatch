@@ -17,6 +17,10 @@ import ApplyPartner from './pages/FindPartner/ApplyPartner';
 import PartnerDetails from './pages/FindPartner/{PartnerDetail}/PartnerDetails';
 import CreatePartner from './pages/FindPartner/CreatePartner';
 import ContactUs from './pages/ContactUs/ContactUs';
+import EventsList from './pages/Events/EventList';
+import ApplyEvent from './pages/Events/ApplyEvent';
+import EventDetail from './pages/Events/{EventDetails}/EventDetails';
+import CreateEvents from './pages/Events/CreateEvent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +28,10 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/event" element={<EventsList />} />
+        <Route path="/createEvents" element={<CreateEvents />} />
+        <Route path="/AllEvents" element={<ApplyEvent />} />
+        <Route path="/Event/:id" element={<EventDetail />} />
         <Route path="/hackathon" element={<HackathonsList />} />
         <Route path="/createHackathons" element={<CreateHackathon />} />
         <Route path="/AllHackathons" element={<ApplyHackathon />} />
