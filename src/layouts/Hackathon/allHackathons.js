@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoSearch, IoClose } from 'react-icons/io5';
-import hackathonData from '../../mockData/HackathonData';
+import axios from 'axios';
+//import hackathonData from '../../mockData/HackathonData';
+import { api_source_current } from '../../config';
 
 const AllHackathons = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [hackathonData,setHackathonData] = useState([])
   const itemsPerPage = 10;
+  useEffect(() => {
+    const fetchHackathons = async () => {
+      try {
+        const response = await axios.get(`${api_source_current}/hackathon`);
+        setHackathonData(response.data);
+      } catch (e) {
+        console.log("Error while fetching hackathons:", e);
+      }
+    };
+
+    fetchHackathons();
+  }, []);
 
   // Filter the hackathons based on the search input
   const filteredHackathons = hackathonData.filter((hackathon) =>
-    hackathon.title.toLowerCase().includes(search.toLowerCase())
+    hackathon.hackathon_name.toLowerCase().includes(search.toLowerCase())
   );
 
   // Calculate pagination details
@@ -73,14 +88,14 @@ const AllHackathons = () => {
               >
                 <div className="absolute inset-0 border-2 border-indigo-400 rounded-xl group-hover:border-indigo-600 group-hover:border-spacing-6 animate-border-motion"></div>
                 <img
-                  src={hackathon.image}
+                  src={hackathon.banner_image}
                   alt={hackathon.title}
                   className="w-full h-52 object-cover rounded-lg mb-4"
                 />
-                <h3 className="text-2xl font-bold mb-2 text-indigo-700">{hackathon.title}</h3>
+                <h3 className="text-2xl font-bold mb-2 text-indigo-700">{hackathon.hackathon_name}</h3>
                 <p className="text-black mb-3">{hackathon.description}</p>
                 <p className="text-sm text-black mb-1">Location: {hackathon.location}</p>
-                <p className="text-sm text-gray-600">Date: {hackathon.date}</p>
+                <p className="text-sm text-gray-600">Date: {hackathon.start_date} - {hackathon.end_date}</p>
                 <div
                   className="mt-4 inline-block bg-indigo-500 border text-white py-2 px-5 rounded-xl shadow hover:bg-indigo-600 transition-colors text-center"
                 >

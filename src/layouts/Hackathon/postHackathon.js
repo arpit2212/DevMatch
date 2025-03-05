@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import "@tailwindcss/typography";
+import { uploadImage } from "../../utils/uploadImage";
+import axios from "axios";
+import { useEffect } from "react";
+import { api_source_current } from "../../config";
 
 const PostHackathon = () => {
   const [formData, setFormData] = useState({
-    hackathonName: "",
+    hackathon_name: "",
     description: "",
     location: "",
-    bannerImage: null,
-    logoImage: null,
+    banner_image: "",
+    logo_image: "",
     organizer: "",
     sponsors: "",
-    startDate: "",
-    endDate: "",
-    participationCriteria: "",
+    start_date: "",
+    end_date: "",
+    participation_criteria: "",
     schedule: "",
-    hackathonRules: "",
-    prizeDetails: "",
-    contactEmail: "",
-    contactPhone: "",
+    hackathon_rules: "",
+    prize_details: "",
+    contact_email: "",
+    contact_phone: "",
   });
 
   const handleChange = (e) => {
@@ -25,15 +29,33 @@ const PostHackathon = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const { name, files } = e.target;
-    setFormData({ ...formData, [name]: files[0] });
+    
+    if (files.length === 0) return;
+  
+    try {
+      const imageUrl = await uploadImage(files[0]);
+      setFormData((prev) => ({ ...prev, [name]: imageUrl }));
+    } catch (error) {
+      console.error("Image upload failed:", error);
+      alert("Image upload failed. Please try again.");
+    }
   };
+  
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted Hackathon Details:", formData);
+    
+    try {
+      const response = await axios.post(`${api_source_current}/hackathon`, formData);
+      alert(response.data.message);
+    } catch (error) {
+      console.error("Error posting hackathon:", error);
+      alert("Failed to post hackathon.");
+    }
   };
+  
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black via-blue-900 to-black mt-12 overflow-hidden">
@@ -49,21 +71,21 @@ const PostHackathon = () => {
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Dynamic Inputs */}
           {[
-            { label: "Hackathon Name", name: "hackathonName", type: "text" },
+            { label: "Hackathon Name", name: "hackathon_name", type: "text" },
             { label: "Location", name: "location", type: "text" },
             { label: "Description", name: "description", type: "textarea" }, 
-            { label: "Banner Image", name: "bannerImage", type: "file" },
-            { label: "Logo Image", name: "logoImage", type: "file" },
+            { label: "Banner Image", name: "banner_image", type: "file" },
+            { label: "Logo Image", name: "logo_image", type: "file" },
             { label: "Organizer", name: "organizer", type: "text" },
             { label: "Sponsors", name: "sponsors", type: "text" },
-            { label: "Start Date", name: "startDate", type: "date" } ,
-            { label: "End Date", name: "endDate", type: "date" },
-            { label: "Participation Criteria", name: "participationCriteria", type: "textarea" },
+            { label: "Start Date", name: "start_date", type: "date" } ,
+            { label: "End Date", name: "end_date", type: "date" },
+            { label: "Participation Criteria", name: "participation_criteria", type: "textarea" },
             { label: "Schedule", name: "schedule", type: "textarea" },
-            { label: "Hackathon Rules ", name: "hackathonRules", type: "textarea" },
-            { label: "Prize Details", name: "prizeDetails", type: "textarea" },
-            { label: "Contact Email", name: "contactEmail", type: "email" },
-            { label: "Contact Phone", name: "contactPhone", type: "tel" },
+            { label: "Hackathon Rules ", name: "hackathon_rules", type: "textarea" },
+            { label: "Prize Details", name: "prize_details", type: "textarea" },
+            { label: "Contact Email", name: "contact_email", type: "email" },
+            { label: "Contact Phone", name: "contact_phone", type: "tel" },
           ].map((field, index) => (
             <div key={index} className={`flex flex-col space-y-2 ${field.type === "textarea" || field.type === "file" ? "md:col-span-2" : ""}`}>
               <label htmlFor={field.name} className="text-sm font-semibold">
@@ -102,7 +124,6 @@ const PostHackathon = () => {
                   id={field.name}
                   name={field.name}
                   type={field.type}
-                  value={formData[field.name]}
                   onChange={field.type === "file" ? handleFileChange : handleChange}
                   className="w-full px-4 py-3 bg-[#0f172a] rounded-lg border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
@@ -114,7 +135,7 @@ const PostHackathon = () => {
           <div className="md:col-span-2 flex justify-center">
             <button
               type="submit"
-              onClick={() => alert("this is the test the form is submited")}
+              
               className="px-10 py-3 font-medium border border-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-800 text-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
             >
               Post Hackathon
