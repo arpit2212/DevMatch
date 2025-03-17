@@ -111,7 +111,7 @@ const Footer = () => {
       </div>
 
       <div className="p-5 text-center bg-black">
-        Designed And Developed by Vidushi Vani and Team 💗
+        Designed And Developed by Arpit and Team 💗
       </div>
     </footer>
   );
