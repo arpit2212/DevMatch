@@ -1,31 +1,88 @@
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@relume_io/relume-ui";
 
-import type { ButtonProps } from "@relume_io/relume-ui";
+// Since we won't have access to @relume_io/relume-ui in a standard Vite setup,
+// I'll create simplified versions of the required components
 
-type QuestionsProps = {
-  title: string;
-  answer: string;
+// Button Component
+const Button = ({ children, className, ...props }) => {
+  return (
+    <button 
+      className={`px-4 py-2 font-medium transition-colors duration-200 ${className}`} 
+      {...props}
+    >
+      {children}
+    </button>
+  );
 };
 
-type Props = {
-  heading: string;
-  description: string;
-  footerHeading: string;
-  footerDescription: string;
-  button: ButtonProps;
-  questions: QuestionsProps[];
+// Accordion Components
+const AccordionContext = React.createContext(null);
+
+const Accordion = ({ children, type = "single" }) => {
+  const [openItems, setOpenItems] = useState([]);
+
+  const toggleItem = (value) => {
+    if (type === "single") {
+      setOpenItems(openItems.includes(value) ? [] : [value]);
+    } else {
+      setOpenItems(
+        openItems.includes(value)
+          ? openItems.filter((item) => item !== value)
+          : [...openItems, value]
+      );
+    }
+  };
+
+  return (
+    <AccordionContext.Provider value={{ openItems, toggleItem }}>
+      <div className="border-t border-gray-700">{children}</div>
+    </AccordionContext.Provider>
+  );
 };
 
-export type LandingFaqProps = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+const AccordionItem = ({ children, value }) => {
+  return <div className="border-b border-gray-700">{children}</div>;
+};
 
-export const LandingFaq = (props: LandingFaqProps) => {
+const AccordionTrigger = ({ children, className }) => {
+  const { openItems, toggleItem } = React.useContext(AccordionContext);
+  const accordionItemValue = React.useContext(AccordionItemContext);
+  const isOpen = openItems.includes(accordionItemValue);
+
+  return (
+    <button
+      className={`flex justify-between items-center w-full text-left ${className}`}
+      onClick={() => toggleItem(accordionItemValue)}
+    >
+      {children}
+      <span className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}>
+        ▼
+      </span>
+    </button>
+  );
+};
+
+const AccordionContent = ({ children, className }) => {
+  const { openItems } = React.useContext(AccordionContext);
+  const accordionItemValue = React.useContext(AccordionItemContext);
+  const isOpen = openItems.includes(accordionItemValue);
+
+  return isOpen ? <div className={className}>{children}</div> : null;
+};
+
+const AccordionItemContext = React.createContext(null);
+
+// Fixing the AccordionItem to provide context
+const EnhancedAccordionItem = ({ children, value }) => {
+  return (
+    <AccordionItemContext.Provider value={value}>
+      <div className="border-b border-gray-700">{children}</div>
+    </AccordionItemContext.Provider>
+  );
+};
+
+// Main LandingFaq Component
+export const LandingFaq = (props) => {
   const { heading, description, questions, footerHeading, footerDescription, button } = {
     ...LandingFaqDefaults,
     ...props,
@@ -71,7 +128,7 @@ export const LandingFaq = (props: LandingFaqProps) => {
           gridTemplateRows: `repeat(${grid.rows}, ${dotSize}px)`,
         }}
       >
-        {[...Array(grid.cols * grid.rows)].map((_, i) => (
+        {Array.from({ length: grid.cols * grid.rows }).map((_, i) => (
           <div
             key={i}
             className="relative w-[1px] h-[1px] bg-white opacity-20"
@@ -96,14 +153,14 @@ export const LandingFaq = (props: LandingFaqProps) => {
         </div>
         <Accordion type="multiple">
           {questions.map((question, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
+            <EnhancedAccordionItem key={index} value={`item-${index}`}>
               <AccordionTrigger className="py-3 text-lg font-medium md:py-5 md:text-xl">
                 {question.title}
               </AccordionTrigger>
               <AccordionContent className="py-2 text-gray-400 md:pb-6 md:text-lg">
                 {question.answer}
               </AccordionContent>
-            </AccordionItem>
+            </EnhancedAccordionItem>
           ))}
         </Accordion>
         <div className="mt-12 text-center md:mt-18 lg:mt-20">
@@ -125,7 +182,7 @@ export const LandingFaq = (props: LandingFaqProps) => {
   );
 };
 
-export const LandingFaqDefaults: Props = {
+export const LandingFaqDefaults = {
   heading: "FAQs",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
@@ -163,3 +220,5 @@ export const LandingFaqDefaults: Props = {
     variant: "outline",
   },
 };
+
+export default LandingFaq;
